@@ -1042,22 +1042,6 @@
     </script>
 
     <script>
-// Get the background music element
-document.addEventListener("DOMContentLoaded", function () {
-    // ✅ Safe to access elements now
-
-    const bgmusic = document.getElementById('bgmusic');
-
-    document.querySelectorAll('.pause-button').forEach(button => {
-        button.addEventListener('click', function () {
-            if (bgmusic.paused) {
-                bgmusic.play();
-            } else {
-                bgmusic.pause();
-            }
-        });
-    });
-
 
         // Function to show the spinner
         function showSpinner() {
@@ -1088,6 +1072,23 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     </script>
 
+  <script>
+const bgmusic = document.getElementById('bgmusic');
+
+document.querySelectorAll('.pause-button').forEach(button => {
+    button.addEventListener('click', function () {
+        const icon = button.querySelector('img');
+        if (bgmusic.paused) {
+            bgmusic.play();
+            if (icon) icon.src = 'img/music-stop.png';
+        } else {
+            bgmusic.pause();
+            if (icon) icon.src = 'img/music-play.png';
+        }
+    });
+});
+    
+  </script>
 
 </body>
 </html>

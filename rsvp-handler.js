@@ -4,12 +4,15 @@ $(document).ready(function () {
     $('#send-email-button').on('click', function () {
         console.log("Button clicked");
 
+        const attendanceStatus = $('#guests').val();
+        const guestCount = (attendanceStatus === 'not_attending') ? '0' : $('#guest_count').val();
+
         const formData = {
             event_website: $('#event_uuid').val(),
             full_name: $('#full_name').val(),
-            attendance_status: $('#guests').val(),
+            attendance_status: attendanceStatus,
             phone_number: $('#country-code').val() + $('#phone').val(),
-            guest_count: $('#guest_count').val()
+            guest_count: guestCount
         };
 
         console.log("Form data:", formData);
@@ -37,7 +40,6 @@ $(document).ready(function () {
             },
             error: function (xhr, status, error) {
                 console.error("Error:", status, error, xhr.responseText);
-
             },
             complete: function () {
                 $('#send-email-button').prop('disabled', false).text('Reserve');

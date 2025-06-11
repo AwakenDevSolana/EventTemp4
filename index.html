@@ -1048,18 +1048,21 @@
 
     <script>
 // Get the background music element
-const bgmusic = document.getElementById('bgmusic');
+document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Safe to access elements now
 
-// Attach event listeners to ALL buttons with class "pause-button"
-document.querySelectorAll('.pause-button').forEach(button => {
-    button.addEventListener('click', function () {
-        if (bgmusic.paused) {
-            bgmusic.play();
-        } else {
-            bgmusic.pause();
-        }
+    const bgmusic = document.getElementById('bgmusic');
+
+    document.querySelectorAll('.pause-button').forEach(button => {
+        button.addEventListener('click', function () {
+            if (bgmusic.paused) {
+                bgmusic.play();
+            } else {
+                bgmusic.pause();
+            }
+        });
     });
-});
+
 
         // Function to show the spinner
         function showSpinner() {

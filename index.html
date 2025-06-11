@@ -578,7 +578,7 @@
             </div>
 
             <div class="YORO" style="z-index: 3; bottom: 13%;">
-                <button id="play1" class="pause-button" style="z-index: 2;">
+                <button class="pause-button" style="z-index: 2;">
                     <img id="musicImage" style="width: 20px; height: 20px;" src="img/music-stop.png">
                 </button>
             </div>
@@ -637,7 +637,7 @@
                 <p style="font-size: clamp(28px, 5vw, 40px);">↓</p>
             </div>
             <div class="YORO" style="z-index: 3; bottom: 13%;">
-                <button id="play1" class="pause-button" style="z-index: 2;">
+                <button class="pause-button" style="z-index: 2;">
                     <img id="musicImage" style="width: 20px; height: 20px;" src="img/music-stop.png">
                 </button>
             </div>
@@ -1047,25 +1047,19 @@
     </script>
 
     <script>
-        // Get the background music element
-        const bgmusic = document.getElementById('bgmusic');
+// Get the background music element
+const bgmusic = document.getElementById('bgmusic');
 
-        // Add click event listeners to each music button by its ID
-        document.getElementById('play').addEventListener('click', function () {
-            if (bgmusic.paused) {
-                bgmusic.play();
-            } else {
-                bgmusic.pause();
-            }
-        });
-
-        document.getElementById('play1').addEventListener('click', function () {
-            if (bgmusic.paused) {
-                bgmusic.play();
-            } else {
-                bgmusic.pause();
-            }
-        });
+// Attach event listeners to ALL buttons with class "pause-button"
+document.querySelectorAll('.pause-button').forEach(button => {
+    button.addEventListener('click', function () {
+        if (bgmusic.paused) {
+            bgmusic.play();
+        } else {
+            bgmusic.pause();
+        }
+    });
+});
 
         // Function to show the spinner
         function showSpinner() {

@@ -1080,10 +1080,10 @@ document.querySelectorAll('.pause-button').forEach(button => {
         const icon = button.querySelector('img');
         if (bgmusic.paused) {
             bgmusic.play();
-            if (icon) icon.src = 'img/music-play.png';
+            if (icon) icon.src = 'img/music-stop.png';
         } else {
             bgmusic.pause();
-            if (icon) icon.src = 'img/music-play.png';
+            if (icon) icon.src = 'img/music-stop.png';
         }
     });
 });
